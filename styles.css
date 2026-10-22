@@ -7,11 +7,6 @@ footer {
     text-align: center;
 }
 
-p {
-  /*border: 2px solid rgb(243, 179, 60); */
-  margin: 50px;
-}
-
 .topnav {
   background-color: #134f5c;
   overflow: hidden;
@@ -27,7 +22,7 @@ body {
     background-color: darkgray;
     margin: 0;
 }
-
+/*
 .main-content {
     background-color: white;
     max-width: 900px;
@@ -36,7 +31,7 @@ body {
     padding: 20px;
     margin-top: 20px;
 }
-
+*/
 .topnav a {
   float: left;
   color: #f6b26b;
@@ -64,3 +59,15 @@ body {
   display: block;
 }
 
+h1, h2 {
+    scroll-margin-top: 60px;
+}
+
+.card {
+    background-color: white;
+    padding: 30px;
+    margin-top: 20px;
+    border-radius: 6px;          /* Optional: soft corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    scroll-margin-top: 60px;
+}
