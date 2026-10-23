@@ -22,16 +22,13 @@ body {
     background-color: darkgray;
     margin: 0;
 }
-/*
+
 .main-content {
-    background-color: white;
     max-width: 900px;
     margin: 0 auto; 
     min-height: 100vh;
-    padding: 20px;
-    margin-top: 20px;
 }
-*/
+
 .topnav a {
   float: left;
   color: #f6b26b;
