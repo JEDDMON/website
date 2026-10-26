@@ -19,7 +19,7 @@ footer {
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: darkgray;
+  background-color: rgb(26, 119, 119);
   margin: 0;
 }
 
@@ -64,9 +64,9 @@ h1, h2 {
 
 .card {
     background-color: white;
-    padding: 30px;
-    margin-top: 20px;
-    border-radius: 6px;          /* Optional: soft corners */
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 6px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     scroll-margin-top: 60px;
 }
@@ -81,6 +81,7 @@ h1, h2 {
   background-color: #0b0f17;
   user-select: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  margin-top: 48px;
 }
 
 .hero-a, .hero-b {
@@ -118,4 +119,33 @@ h1, h2 {
     0px 0px 16px rgba(0, 0, 0, 0.9);
   font-size: 3.5rem;
   font-weight: 800;
+}
+
+.hero-sub-txt {
+  object-position: bottom left;
+  position: absolute;
+  top: 90%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  color: #f6b26b;
+  z-index: 10;
+  margin: 0;
+  text-align: left;
+  text-shadow:
+    3px 3px 6px rgba(0, 0, 0, 1), 
+    0px 0px 16px rgba(0, 0, 0, 0.9);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.caption-right-aligned {
+  padding-right: 20px;
+  text-align: right;
+}
+
+.wrap-img-right {
+  float: right;
+  padding: 20px;
+  max-width: 35%; 
+  height: auto;
 }
