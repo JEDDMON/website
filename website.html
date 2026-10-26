@@ -3,77 +3,101 @@
 <link rel="stylesheet" href="styles.css">
 <head>
     <title>JemLabs</title>
-    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
     <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
-<body class = "main-content">
-<div class = "topnav">
-    <a href="#" class = "active">
-        <img src = "logo.svg" alt="JemLabs Logo" class = "nav-logo">
-    </a>
-    <a href="#Demos">Tech</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-</div>
 
-<div style = "height: 20px;"></div>
-<div id = "Demos">
-    <div class = "card">
-        <h1>Using Neural Networks to detect defects in 3d printed objects.</h1>
-        <h2>Problem Explaination:</h2>
-        <h2>Why Siamese Neural Network?</h2>
-        <h2>Training the model:</h2>
-        <h2>Results and Usecases:</h2>
-        <p>Our model is able to successfully locate and segment defects as shown in the image below. We can even accurately quantify the quality of the product by using a defect ratio.</p>
-        <p>Currently research at LLNL has switched focus from locating defects after manufacturing to finding defects during manufacturing.</p>
+<body>
+    <header class = "h-scan" id="imgScan">
+        <img src = "assets/hero_satellite.webp" class = "hero-a"/>
+        <img src = "assets/hero_classified.webp" class = "hero-b"/>
+        <h1 class="hero-title">JemLabs: Gain insights from data.</h1>
+    </header>
 
-        <p>This work was done in collaboration with the Lawrence Livermore National Laboratory (LLNL) as a part of the 2026 Data Science Challenge.</p>
+
+    <div class = "main-content">
+        
+    <div class = "topnav">
+        <a href="#" class = "active">
+            <img src = "assets/logo.svg" alt="JemLabs Logo" class = "nav-logo">
+        </a>
+        <a href="#Demos">Tech</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
     </div>
-    <Div class = "card">
-        <h1>Detecting defects in NAND cells using image segmentation and outer contour characterization.</h1>
-        <h2>Using the Segment Anything Model (SAM) from Meta</h2>
-        <h2>Using the outer contour to locate defective cells.</h2>
-        <p>This work was done in colaboration with SanDisk and UC Merced as a part of the Innovate to Grow (I2G) program. After successful delivery of our project I worked as a Contingent Software Engineer at SanDisk to continue development of the "Advanced Image Analysis Project"</p>
-    </Div>
-    <Div class = "card">
-        <h1>Can you out perform my stock trading algorithmn?</h1>
-    </Div>
-</div>
-<div style="height: 300px;"></div>
-<div id = "about" class = "card">
-    <h1>About Me...</h1>
-    <h2>Education:</h2>
-    <h3>University of California, Merced</h3>
-    <p>Bachelors of Science, Computer Science and Engineering</p>
-    <p>Applied Mathematics (Minor)</p>
-    <h2>Work Experience:</h2>
-    <h3>SanDisk</h3>
-    <h3>LLNL</h3>
-    <h2></h2>
-    <h3><a href = "https://leetcode.com/u/JEDDMON/">LeetCode</a></h3>
-    <ul>
-        <li>100+ Leetcode problems solved.</li>
-        <li>60+ MySQL database problems solved.</li>
-        <li>60+ C++/Python algorithmn problems solved.</li>
-    </ul>
-    <h3><a href = "https://github.com/JEDDMON">GitHub</a></h3>
-    <ul>
-        <li>300+ Git Commits in 2025.</li>
-        <li>≈200 Git Commits shipped for AIA.</li>
-        <li>150+ Git commits in 2026.</li>
-    </ul>
-    
-</div>
-<div style="height: 500px;"></div>
-<div id = "contact" class = "card">
-    <h1>Let's connect!</h1>
-    <h2>Connect through <a href = "https://www.linkedin.com/in/josh-edmon">linkedin</a> or email me at <a href="mailto:josh@jemlabs.us">josh@jemlabs.us</a></h2>
-    
-</div>
+
+    <div style = "height: 20px;"></div>
+    <div id = "Demos">
+        <div class = "card">
+            <h1>Using Neural Networks to detect defects in 3d printed objects.</h1>
+            <h2>Problem Explaination:</h2>
+            <p></p>
+            <h2>Why Siamese Neural Network?</h2>
+            <h2>Training the model:</h2>
+            <h2>Results and Usecases:</h2>
+            <p>Our model is able to successfully locate and segment defects as shown in the image below. We can even accurately quantify the quality of the product by using a defect ratio.</p>
+            <p>Currently research at LLNL has switched focus from locating defects after manufacturing to finding defects during manufacturing.</p>
+
+            <p>This work was done in collaboration with the Lawrence Livermore National Laboratory (LLNL) as a part of the 2026 Data Science Challenge.</p>
+        </div>
+        <Div class = "card">
+            <h1>Detecting defects in NAND cells using image segmentation and outer contour characterization.</h1>
+            <h2>Using the Segment Anything Model (SAM) from Meta</h2>
+            <h2>Using the outer contour to locate defective cells.</h2>
+            <p>This work was done in colaboration with SanDisk and UC Merced as a part of the Innovate to Grow (I2G) program. After successful delivery of our project I worked as a Contingent Software Engineer at SanDisk to continue development of the "Advanced Image Analysis Project"</p>
+        </Div>
+        <Div class = "card">
+            <h1>Can you out perform my stock trading algorithmn?</h1>
+        </Div>
+    </div>
+    <div style="height: 300px;"></div>
+    <div id = "about" class = "card">
+        <h1>About Me...</h1>
+        <h2>Education:</h2>
+        <h3>University of California, Merced</h3>
+        <p>Bachelors of Science, Computer Science and Engineering</p>
+        <p>Applied Mathematics (Minor)</p>
+        <h2>Work Experience:</h2>
+        <h3>SanDisk</h3>
+        <h3>LLNL</h3>
+        <h2></h2>
+        <h3><a href = "https://leetcode.com/u/JEDDMON/">LeetCode</a></h3>
+        <ul>
+            <li>100+ Leetcode problems solved.</li>
+            <li>60+ MySQL database problems solved.</li>
+            <li>60+ C++/Python algorithmn problems solved.</li>
+        </ul>
+        <h3><a href = "https://github.com/JEDDMON">GitHub</a></h3>
+        <ul>
+            <li>300+ Git Commits in 2025.</li>
+            <li>≈200 Git Commits shipped for AIA.</li>
+            <li>150+ Git commits in 2026.</li>
+        </ul>
+        
+    </div>
+    <div style="height: 500px;"></div>
+    <div id = "contact" class = "card">
+        <h1>Let's connect!</h1>
+        <h2>Connect through <a href = "https://www.linkedin.com/in/josh-edmon">linkedin</a> or email me at <a href="mailto:josh@jemlabs.us">josh@jemlabs.us</a></h2>
+        
+    </div>
 
 
 
-<div class = "footer">
-    <p>Coded by Josh Edmon without agentic tools.</p>
-</div>
+    <div class = "footer">
+        <p>Coded by Josh Edmon without agentic tools.</p>
+    </div>
+    </div>
 </body>
+
+
+<script>
+    const heroB = document.querySelector('.hero-b');
+
+    setInterval(() => {
+        heroB.classList.toggle('reveal');
+    }, 20000);
+</script>
