@@ -19,8 +19,8 @@ footer {
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: rgb(26, 119, 119);
   margin: 0;
+  background-color: #d3ccc4;
 }
 
 .main-content {
@@ -146,6 +146,6 @@ h1, h2 {
 .wrap-img-right {
   float: right;
   padding: 20px;
-  max-width: 35%; 
+  max-width: 35%;
   height: auto;
 }
