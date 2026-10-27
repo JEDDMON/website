@@ -59,7 +59,7 @@ body {
 }
 
 h1, h2 {
-    scroll-margin-top: 60px;
+    scroll-margin-top: 30px;
 }
 
 .card {
@@ -147,5 +147,17 @@ h1, h2 {
   float: right;
   padding: 20px;
   max-width: 35%;
+  height: auto;
+}
+
+.wrap-img-large {
+  float: right;
+  max-width: 50%;
+  height: auto;
+}
+
+.img-large {
+  display: block;
+  width: 100%;
   height: auto;
 }
