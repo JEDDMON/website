@@ -32,13 +32,55 @@
     </div>
 
     <div style = "height: 20px;"></div>
-    
+    <div id = "Demos" class = "card">
+        <h1>Advanced Image Analysis Platform (AIA) - SanDisk</h1>
+        <figure class = "wrap-img-large">
+            <img src = "assets/aia.png" class = "img-large">
+            <figcaption>Note: Image shown in AIA was generated using AI tools and is for demonstration purposes only.</figcaption>
+        </figure>
+        
+        <p>The advanced image platform is an internal tool used by engineers at SanDisk to analyze NAND cell arrays for R&D purposes.</p>
+        <p>AIA uses <a href = "https://segment-anything.metademolab.com/">SAM</a> (Segment Anything Model) to segment NAND cells.</p>
+        <p>SAM has multiple modes for segmentation including:</p>
+        <ul>
+            <li>Automatic segmentation: SAM segments all objects found in the image.</li>
+            <li>Box prompt: The user draws a box around the object they want to segment.</li>
+            <li>Points prompt: The user marks what areas they want to include and exclude.</li>
+        </ul>
+        <p>Once segmented, engineers can select the objects they want to measure and AIA calculates the location of the optimal measurement. AIA then plots the measurement and records data for future export.</p>
+
+        <h2>The Stack</h2>
+        <img src = "assets/tech_logos.png" class = wrap-img-large>
+        <ul>
+            <li>Language: Python</li>
+            <li>User Interface: PySide6</li>
+            <li>Backend: Flask API - Uses SHA-256 to cache embeddings for rapid response.</li>
+            <li>AI Image Segmentation: SAM (Segment Anything)</li>
+            <li>Super-Image: AI Upscaling tools.</li>
+            <li>Image Manipulation: Numpy & Cv2</li>
+        </ul>
+
+        <figure class = "wrap-img-large">
+            <img src = "assets/aia_defect_tool.png" class = "img-large">
+            <figcaption>AIA being used to locate defects automatically in an array of NAND cells.</figcaption>
+        </figure>
+
+        <h2>Why use SAM?</h2>
+        <p>SAM was chosen as economic alternative to training a custom model.</p>
+        <p>Training a model requires lots of time, compute, and testing. Using SAM let our team skip these steps and focus on the development of AIA as a platform.</p>
+        <p>As the name suggests, SAM is designed to "Segment Anything". Normally, segmentation models are trained to only segment specific objects or patterns (for example license plates or faces). Such a model is not adaptable for the variety of analysis tasks AIA is used for.</p>
+        
+        <h2>Using AIA to automatically locate defects in NAND arrays.</h2>
+        <p>AIA is also designed to automatically locate defects by comparing the outer contour of segmented objects.</p>
+        <p>Take for example the defect shown to the right where several cells appear to be touching.</p>
+        <p>By comparing the outer contour to an exemplary NAND cell, AIA has located and highlighted areas of substantial deviation.</p>
+    </div>
     <div id = "about" class = "card">
         <img src = "assets/me.jpg" class = "wrap-img-right">
         <h1>Joshua Edmon-Macias</h1>
         <h2>Education:</h2>
         <h3>University of California, Merced</h3>
-        <p>Bachelors of Science, Computer Science and Engineering</p>
+        <p>Bachelor of Science, Computer Science and Engineering</p>
         <p>Applied Mathematics (Minor)</p>
         <h2>Work Experience:</h2>
         <h3>SanDisk - Software Engineer I</h3>
@@ -59,12 +101,11 @@
             <li>Trained custom defect-segmentation model to identify missing internal struts while remaining invariant to alignment shifts, scaling, and imaging noise.</li>
             <li>Delivered a 120x faster defect-detection alternative to agentic baselines and presented final results to LLNL technical staff.</li>
         </ul>
-        <h2></h2>
         <h3><a href = "https://leetcode.com/u/JEDDMON/">LeetCode</a></h3>
         <ul>
             <li>100+ Leetcode problems solved.</li>
             <li>60+ MySQL database problems solved.</li>
-            <li>60+ C++/Python algorithmn problems solved.</li>
+            <li>60+ C++/Python algorithm problems solved.</li>
         </ul>
         <h3><a href = "https://github.com/JEDDMON">GitHub</a></h3>
         <ul>
@@ -76,7 +117,7 @@
     </div>
     <div id = "contact" class = "card">
         <h1>Let's connect!</h1>
-        <h2>Connect through <a href = "https://www.linkedin.com/in/josh-edmon">linkedin</a> or email me at <a href="mailto:josh@jemlabs.us">josh@jemlabs.us</a></h2>
+        <h2>Connect through <a href = "https://www.linkedin.com/in/josh-edmon">LinkedIn</a> or email me at <a href="mailto:josh@jemlabs.us">josh@jemlabs.us</a></h2>
         
     </div>
 
@@ -84,6 +125,7 @@
 
     <div class = "footer">
         <p>Coded by Josh Edmon without agentic tools.</p>
+        <p>JemLabs (JemLabs.us) is the independent engineering portfolio and research lab of Josh Edmon.</p>
     </div>
     </div>
 </body>
