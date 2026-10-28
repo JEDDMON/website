@@ -26,14 +26,67 @@
         <a href="#" class = "active">
             <img src = "assets/logo.svg" alt="JemLabs Logo" class = "nav-logo">
         </a>
-        <a href="#Demos">Tech</a>
+        <a id = "tech-btn" href="#Demos">Tech</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
     </div>
 
     <div style = "height: 20px;"></div>
+    <div class = project>
+    <div class = "card">
+        <figure class = "wrap-img-right">
+            <img src = "assets/cube.jpg" class = "img-large">
+            <figcaption>One of the test cubes that contains purposefully defective struts.</figcaption>
+        </figure>
+        <h1>Defect detection using Siamese Res-UNet</h1>
+        <h3>Lawrence Livermore National Laboratory (LLNL)</h3>
+        <p>In 3D printing, rarely are parts printed fully solid. Parts printed 100% solid are significantly more expensive to manufacture, weigh more and (often) take longer to manufacture.</p>
+        <p>Rather than printing an object solid, an infill pattern is utilized to balance weight, costs and structural integrity of the printed part.</p>
+        <p>This equilibrium is necessary for aerospace applications where weight savings and structural integrity needs to be perfectly balanced for a successful mission.</p>
+        <p>But, how do you know that a printed part is safe to use when you can only view the exterior surface of the object?</p>
+        <p>This is where the Data Science Challenge begins. We were given a dataset with STL files and CT scans of printed test objects that had various levels of delibrate defects. Our task was to develop a data pipeline to locate the defects.</p>
+        <figure class = "wrap-img-right">
+            <img src = "assets/patch1_training_sequence.gif" class = "img-large">
+            <figcaption>Visualization of data augmentations during training.</figcaption>
+        </figure>
+        <h2>Training the model:</h2>
+        <p>For most teams this meant using agentic systems to search each individual edge and vertex in the object.</p>
+        <p>Our team tested a similar approach and we found it to be time consuming. There are over 18,000 edges in the cube pictured below and for the computer to check each edge / vertex it took over an hour. Afterwards we found that some of the elements flagged missing were caused by alignment issues rather than being actually missing.</p>
+        <p>Thus, I decided we needed a different solution - Something faster and something that would not fall apart with poor alignment.</p>
+        <p>I trained the model by generating a Tiff stack from the STL file with no defects. I then randomly sliced sections from the Tiff stack. Then I randomly selected areas to become defective. Elements that were removed from the Tiff are then saved for calculating error. Finally noise, rotation, translations, and scaling are added to the image to recreate differences between the real CT scan and the tiff stack generated from the STL file.</p>
+        <figure class = "wrap-img-left">
+            <img src = "assets/cube-scan.png" class = img-large>
+            <figcaption>A frame from the raw CT scan data.</figcaption>
+            <div style = "height: 60px"></div>
+            <img src = "assets/frame78_1indexed_idx77_light_overlay.png" class = "img-large">
+            <figcaption>The segmented CT Scan with defective areas located by the model filled in red.</figcaption>
+        </figure>
+
+        <h2>Results:</h2>
+        <p>As a result of the data augmentation approach used to train the model, The model learned to segment key differences like missing struts. At the same time, the model learned to ignore noise, alignment, and scaling issues.</p>
+        <p>When I used this system to find the defects in the same cube from earlier, inference time took approximately 30 seconds! This is less than 1% of time it took to do the agentic approach.</p>
+        <p>This provides a more scalable, general, and cost effective framework for finding defects.</p>
+        <h2>Current work and future use cases:</h2>
+        <p>Current work at the Lawrence Livermore National Laboratory has moved beyond verification using CT scans. Today the focus is on verification during the printing process. This has several key benefits which I will list below.</p>
+        <ol>
+            <li>Verifications happen during printing so there are no post printing steps required saving time.</li>
+            <li>No registration/alignment problem as the location and orientation of the object are known.</li>
+            <li>Systems that do verification during printing are able to terminate the print early if it is found to be defective.</li>
+            <li>Minimize time spent printing parts that are known to be defective.</li>
+            <li>Minimize material waste on defective parts.</li>
+
+            
+        </ol>
+        <p>I believe that this type of pipeline is still very useful for anytime an object needs to be verified multiple times.</p>
+        <p>This would especially useful with resuable areospace parts (which are often custom made and 3D printed) where parts need to be inspected multiple times and cleared for reuse. This pipeline could be used to rapidly locate and flag defects during inspections and refurbishment.</p>
+
+        
+    </div>
+    </div>
+    <div class = project>
     <div id = "Demos" class = "card">
-        <h1>Advanced Image Analysis Platform (AIA) - SanDisk</h1>
+        <h1>Advanced Image Analysis Platform (AIA)</h1>
+        <h3>SanDisk</h3>
         <figure class = "wrap-img-large">
             <img src = "assets/aia.png" class = "img-large">
             <figcaption>Note: Image shown in AIA was generated using AI tools and is for demonstration purposes only.</figcaption>
@@ -74,6 +127,7 @@
         <p>AIA is also designed to automatically locate defects by comparing the outer contour of segmented objects.</p>
         <p>Take for example the defect shown to the right where several cells appear to be touching.</p>
         <p>By comparing the outer contour to an exemplary NAND cell, AIA has located and highlighted areas of substantial deviation.</p>
+    </div>
     </div>
     <div id = "about" class = "card">
         <img src = "assets/me.jpg" class = "wrap-img-right">
@@ -137,4 +191,18 @@
     setInterval(() => {
         heroB.classList.toggle('reveal');
     }, 20000);
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const techBtn = document.getElementById("tech-btn");
+        const projects = document.querySelectorAll(".project")
+        let currentIndex = 0;
+
+        if (techBtn && projects.length > 0) {
+            techBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                projects[currentIndex].scrollIntoView({behavior: "smooth"});
+                currentIndex = (currentIndex + 1) % projects.length;
+            });
+        }
+    });
 </script>

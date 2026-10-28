@@ -150,6 +150,14 @@ h1, h2 {
   height: auto;
 }
 
+.wrap-img-left {
+  float: left;
+  padding: 20px;
+  max-width: 35%;
+  height: auto;
+}
+
+
 .wrap-img-large {
   float: right;
   max-width: 50%;
@@ -160,4 +168,12 @@ h1, h2 {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.project {
+    scroll-margin-top: 55px; 
+}
+
+li {
+    margin-bottom: 12px;
 }
