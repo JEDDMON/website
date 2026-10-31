@@ -44,16 +44,23 @@
         <p>Rather than printing an object solid, an infill pattern is utilized to balance weight, costs and structural integrity of the printed part.</p>
         <p>This equilibrium is necessary for aerospace applications where weight savings and structural integrity needs to be perfectly balanced for a successful mission.</p>
         <p>But, how do you know that a printed part is safe to use when you can only view the exterior surface of the object?</p>
-        <p>This is where the Data Science Challenge begins. We were given a dataset with STL files and CT scans of printed test objects that had various levels of delibrate defects. Our task was to develop a data pipeline to locate the defects.</p>
+        <p>This is where the Data Science Challenge begins. We were given a dataset with STL files and CT scans of printed test objects that had various levels of deliberate defects. Our task was to develop a data pipeline to locate the defects.</p>
         <figure class = "wrap-img-right">
+            <img src = "assets/Pytorch_logo.png" class = "img-large">
+            <div style = "height: 100px"></div>
             <img src = "assets/patch1_training_sequence.gif" class = "img-large">
             <figcaption>Visualization of data augmentations during training.</figcaption>
         </figure>
+    
         <h2>Training the model:</h2>
         <p>For most teams this meant using agentic systems to search each individual edge and vertex in the object.</p>
         <p>Our team tested a similar approach and we found it to be time consuming. There are over 18,000 edges in the cube pictured below and for the computer to check each edge / vertex it took over an hour. Afterwards we found that some of the elements flagged missing were caused by alignment issues rather than being actually missing.</p>
         <p>Thus, I decided we needed a different solution - Something faster and something that would not fall apart with poor alignment.</p>
-        <p>I trained the model by generating a Tiff stack from the STL file with no defects. I then randomly sliced sections from the Tiff stack. Then I randomly selected areas to become defective. Elements that were removed from the Tiff are then saved for calculating error. Finally noise, rotation, translations, and scaling are added to the image to recreate differences between the real CT scan and the tiff stack generated from the STL file.</p>
+        <p>After researching various architectures for image segmentation, I implemented a Siamese Res-UNet in PyTorch which is designed to locate differences between images.</p>
+        <p>I trained the model by generating a Tiff stack from the STL file with no defects. I then randomly sliced sections from the Tiff stack and randomly selected areas to become defective.</p>
+        <p>Elements that were removed from the Tiff are then saved for calculating error. Finally noise, rotation, translations, and scaling are added to the image to recreate differences between the real CT scan and the tiff stack generated from the STL file.</p>
+        <p>The model is then asked to locate the defects between the original image and the simulated CT scan images. Since the exact defect locations and predicted defect locations are known, we calculate the error and use Adam to optimize the weights of the model for minimum error.</p>
+        <p>To fully train the model over 200,000 simulated images were used.</p>
         <figure class = "wrap-img-left">
             <img src = "assets/cube-scan.png" class = img-large>
             <figcaption>A frame from the raw CT scan data.</figcaption>
@@ -78,7 +85,7 @@
             
         </ol>
         <p>I believe that this type of pipeline is still very useful for anytime an object needs to be verified multiple times.</p>
-        <p>This would especially useful with resuable areospace parts (which are often custom made and 3D printed) where parts need to be inspected multiple times and cleared for reuse. This pipeline could be used to rapidly locate and flag defects during inspections and refurbishment.</p>
+        <p>This would especially useful with reusable aerospace parts (which are often custom made and 3D printed) where parts need to be inspected multiple times and cleared for reuse. This pipeline could be used to rapidly locate and flag defects during inspections and refurbishment.</p>
 
         
     </div>
@@ -157,7 +164,7 @@
         </ul>
         <h3><a href = "https://leetcode.com/u/JEDDMON/">LeetCode</a></h3>
         <ul>
-            <li>100+ Leetcode problems solved.</li>
+            <li>100+ LeetCode problems solved.</li>
             <li>60+ MySQL database problems solved.</li>
             <li>60+ C++/Python algorithm problems solved.</li>
         </ul>
