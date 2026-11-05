@@ -90,6 +90,26 @@
         
     </div>
     </div>
+
+    <div class = project>
+    <div class = "card">
+        <figure class = "wrap-img-right-2">
+            <img src = "assets/v2_overlay.gif" class = "img-large">
+            <figcaption>Large defects are colored purple (class 2) while smaller defects are red (class 1).</figcaption>
+        </figure>
+        <h1>Updated Defect Detection</h1>
+        <p>Since the conclusion of the Data Science Challenge at LLNL, I have made a couple of improvements to the model that I would like to report.</p>
+        <p>These improvements include the following:</p>
+        <ol>
+            <li>Defect Classification: During training I simulated defects of various sizes. I trained the model to recognize smaller defects as class 1 and larger defects as class 2.</li>
+            <li>Tilt Resistance - Training: Do you notice that layers appear to move from left to right in the image to the right? This is because the test object was not actually standing perfectly straight. In the new version of the model I trained the model to adapt to alignment discrepancies of up to 2 degrees vertically.</li>
+            <li>Tilt Resistance - Architecture: The model now uses 15 frames from the tiff stack for inference providing more vertical context.</li>
+            <li>Convolutional layer for defect quantization: The new model uses a convolutional layer and summation to verify and count in parallel defective voxels during inference.</li>
+        </ol>
+        <h2>Overall Results:</h2>
+        <p>The latest model accurately classifies defects, and estimates the number of defective / missing struts. It is also highly optimized for parallel computation allowing for fast results.</p>
+    </div>
+    </div>
     <div class = project>
     <div id = "Demos" class = "card">
         <h1>Advanced Image Analysis Platform (AIA)</h1>
